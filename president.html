@@ -28,6 +28,7 @@
             font-family: 'Times New Roman', Times, serif;
         }
         </style>
+    
  
 <body>
     <h2> President guess by Bala Harish Chowdary</h2>
@@ -40,7 +41,7 @@
         <label for="form1_guessname">Guess the president</label>
         <input type ="text" id="form1_guessname" name="form1_guessname" autofocus> <br>
     
-        <input type="button" onclick="checkGuess()" value="Check the guess">
+        <input id="guessf1" type="button" onclick="checkGuess()" value="Check the guess">
     </form>
     
     
@@ -58,14 +59,20 @@
         
         if(secretstringname==guessname){
             correct+=1;
-            alert("You got it right")
-            out.innerHTML ="Correct"+correct
+            alert("You got it right");
+            out.innerHTML ="Correct"+correct;
         } else {
-            wrong+=1;
-            alert("Wrong President")
-            out.innerHTML ="wrong"+wrong
-            
+            wrong +=1;
+            alert("Wrong President");
+            out.innerHTML ="wrong"+wrong;
+            if(wrong >=3){
+            document.getElementById("guessf1").setAttribute("onclick","javascript:gameover()");
+            }
         }
+        
+    }
+    function gameover() {
+        alert("sorry, game over.")
     }
     var useImage=1;
         function swapImage(){
